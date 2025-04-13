@@ -8,6 +8,8 @@ class SubTask(BaseModel):
     main_task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
     status = models.CharField(max_length=255, choices=Status.choices)
 
+    class Meta:
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"{self.title} (Subtask of {self.main_task.title})"
