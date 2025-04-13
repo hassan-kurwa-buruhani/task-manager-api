@@ -5,7 +5,7 @@ from .user_serializers import UserSerializer
 
 class TagSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
-        slug_field='username', read_only=True, queryset=CustomUser.objects.all())
+        slug_field='username', read_only=True)
 
 
     class Meta:

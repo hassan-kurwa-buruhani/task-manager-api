@@ -4,7 +4,7 @@ from .task_serializers import TaskSerializer
 
 class SubTaskSerializer(serializers.ModelSerializer):
     main_task = serializers.SlugRelatedField(
-        read_only=True, slug_field='title', queryset=Task.objects.all())
+        read_only=True, slug_field='title')
 
     class Meta:
         model = SubTask

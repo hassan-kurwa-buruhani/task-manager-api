@@ -9,8 +9,8 @@ class TaskSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
 
-    tag_ids = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=Tag.objects.all(), source='tags', write_only=True
+    tag_ids = serializers.SlugRelatedField(
+        many=True, queryset=Tag.objects.all(), source='tags', write_only=True, slug_field='name'
     )
 
     is_completed = serializers.ReadOnlyField()
